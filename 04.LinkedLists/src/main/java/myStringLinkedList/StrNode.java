@@ -1,4 +1,4 @@
-package MyNodePackage;
+package myStringLinkedList;
 
 
 import lombok.Getter;
@@ -9,11 +9,11 @@ import lombok.Setter;
 public class StrNode {
 
     String element;
-    StrNode nextPointer;
+    StrNode next;
 
 
     public StrNode(String element) {
         this.element = element;
-        nextPointer=null;
+        next =null;
     }
 }
