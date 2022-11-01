@@ -5,15 +5,16 @@ public class TreeApp {
         for (int i = 0; i <11; i++) {
             tree.insert(numbers[i]);
         }
-//      VisualizeTree.printTree(tree.root,null,false);
-//
-//        tree.preOrderTraversal(tree.root);
-//        System.out.println();
-//        System.out.println("In Order Traversal :");
-//        tree.inOrderTraversal(tree.root);
-//        System.out.println();
-//        System.out.println("Post Order Traversal: ");
-//        tree.postOrderTraversal(tree.root);
+      VisualizeTree.printTree(tree.root,null,false);
+
+        System.out.println("Pre Order Traversal :");
+        tree.preOrderTraversal(tree.root);
+        System.out.println();
+        System.out.println("In Order Traversal :");
+        tree.inOrderTraversalByMe(tree.root);
+        System.out.println();
+        System.out.println("Post Order Traversal: ");
+        tree.postOrderByMe(tree.root);
 //        System.out.println();
 //        System.out.println("Level Order Traversal: ");
 //        tree.levelOrderTraversal();
