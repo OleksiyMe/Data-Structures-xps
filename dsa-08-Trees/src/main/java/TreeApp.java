@@ -15,9 +15,10 @@ public class TreeApp {
         System.out.println();
         System.out.println("Post Order Traversal: ");
         tree.postOrderByMe(tree.root);
-//        System.out.println();
-//        System.out.println("Level Order Traversal: ");
-//        tree.levelOrderTraversal();
+        System.out.println();
+        System.out.println("Level Order Traversal: ");
+      //  tree.levelOrderTraversal();
+        tree.levelTraversalByMe();
 
     }
 }

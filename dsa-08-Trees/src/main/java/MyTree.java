@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -82,14 +83,18 @@ public class MyTree {
         if (root == null) return;
         postOrderByMe(root.leftChild);
         postOrderByMe(root.rightChild);
-        System.out.print(root.value+", ");
+        System.out.print(root.value + ", ");
 
     }
 
+    //Breadth First traversal (level-order traversal, not recursive)
+
     void levelOrderTraversal() {
+
         if (root == null) return;
         Queue<TNode> queue = new LinkedList<>();
         queue.add(root);
+
         while (!queue.isEmpty()) {
             TNode toVisit = queue.poll();
             System.out.print(toVisit.value + ", ");
@@ -98,4 +103,23 @@ public class MyTree {
 
         }
     }
+
+    void levelTraversalByMe() {
+
+        if (root == null) return;
+        ArrayDeque<TNode> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+
+            TNode vizited = queue.poll();
+            System.out.print(vizited.value + ", ");
+            if (vizited.leftChild != null) queue.add(vizited.leftChild);
+            if (vizited.rightChild != null) queue.add(vizited.rightChild);
+        }
+    }
+
+    ;
+
+
 }
