@@ -119,7 +119,85 @@ public class MyTree {
         }
     }
 
-    ;
+    public boolean contains(int value) {
 
+        if (root == null) return false;
+
+        TNode current = root;
+
+        while (current != null) {
+            if (value < current.value)     //branch left
+                current = current.leftChild;
+            else if (value > current.value) current = current.rightChild;
+            else return true;
+        }
+        return false;
+    }
+
+    public boolean isLeaf(TNode node) {   //  Node is leaf
+
+        return node.leftChild == null && node.rightChild == null;
+    }
+
+    public void printLeaves(TNode root) {
+
+        if (root == null) return;
+        //in-order-traversal root-left-right
+        if (isLeaf(root)) System.out.print(root.value + ", ");
+        printLeaves(root.leftChild);
+        printLeaves(root.rightChild);
+
+
+    }
+
+    public int countLeaves(TNode root){
+
+        if(root==null) return 0;
+        if (isLeaf(root)) return 1;
+        return countLeaves(root.leftChild)+countLeaves(root.rightChild);
+    }
+    public int countLeaves(){
+        return countLeaves(root);
+    }
+
+
+    public int findSumOfLeaves(TNode root){
+
+        if(root==null) return 0;
+        if (isLeaf(root)) return root.value;
+        return findSumOfLeaves(root.leftChild)+findSumOfLeaves(root.rightChild);
+    }
+    public int findSumOfLeaves(){
+        return findSumOfLeaves(root);
+    }
+
+    public int height(TNode root){
+
+        if (root==null) return -1;
+
+        if (isLeaf(root)) return 0;
+        return 1+Math.max(height(root.leftChild),height(root.rightChild));
+
+
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

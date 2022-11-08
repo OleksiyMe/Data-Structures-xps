@@ -20,5 +20,19 @@ public class TreeApp {
       //  tree.levelOrderTraversal();
         tree.levelTraversalByMe();
 
+        System.out.println("\n Tree contains 17  "+ tree.contains(17));
+
+        tree.printLeaves(tree.root);
+        System.out.println();
+        System.out.println(tree.countLeaves(tree.root) +"  --  number of leaves");
+        System.out.println(tree.countLeaves());
+        System.out.println();
+        tree.printLeaves(tree.root);
+        System.out.println("\nSum of values of leaves is "+ tree.findSumOfLeaves());
+
+        System.out.println("Height is "+ tree.height(tree.root));
+
     }
+
+
 }
