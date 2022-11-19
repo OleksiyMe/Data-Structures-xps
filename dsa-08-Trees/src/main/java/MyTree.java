@@ -150,36 +150,64 @@ public class MyTree {
 
     }
 
-    public int countLeaves(TNode root){
+    public int countLeaves(TNode root) {
 
-        if(root==null) return 0;
+        if (root == null) return 0;
         if (isLeaf(root)) return 1;
-        return countLeaves(root.leftChild)+countLeaves(root.rightChild);
+        return countLeaves(root.leftChild) + countLeaves(root.rightChild);
     }
-    public int countLeaves(){
+
+    public int countLeaves() {
         return countLeaves(root);
     }
 
 
-    public int findSumOfLeaves(TNode root){
+    public int findSumOfLeaves(TNode root) {
 
-        if(root==null) return 0;
+        if (root == null) return 0;
         if (isLeaf(root)) return root.value;
-        return findSumOfLeaves(root.leftChild)+findSumOfLeaves(root.rightChild);
+        return findSumOfLeaves(root.leftChild) + findSumOfLeaves(root.rightChild);
     }
-    public int findSumOfLeaves(){
+
+    public int findSumOfLeaves() {
         return findSumOfLeaves(root);
     }
 
-    public int height(TNode root){
+    public int height(TNode root) {
 
-        if (root==null) return -1;
-
+        if (root == null) return -1;
         if (isLeaf(root)) return 0;
-        return 1+Math.max(height(root.leftChild),height(root.rightChild));
+        return 1 + Math.max(height(root.leftChild), height(root.rightChild));
+    }
 
+
+    //Assignment Sum of node depths
+    public int calculateNodeDepthSums() {
+        return nodeDepthSums(root, 0);
+    }
+
+    public int nodeDepthSums(TNode node, int A) {      //A - depth of the current node
+
+        if (node == null) return 0;
+        return A + nodeDepthSums(node.leftChild, A + 1)
+                + nodeDepthSums(node.rightChild, A + 1);
 
     }
+
+    public int calculateNodeSums() {
+        return nodesSums(root, root.value);
+    }
+
+    public int nodesSums(TNode node, int sum) {      //A - depth of the current node
+        System.out.print(sum+", ");
+        if (node == null) return 0;
+        return sum + nodesSums(node.leftChild, node.value)
+                + nodesSums(node.rightChild, node.value);
+
+    }
+
+
+
 
 }
 
