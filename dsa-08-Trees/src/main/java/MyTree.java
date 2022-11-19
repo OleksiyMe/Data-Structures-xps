@@ -194,22 +194,23 @@ public class MyTree {
 
     }
 
+    // Assignment  Sum of All Nodes recursively
     public int calculateNodeSums() {
-        return nodesSums(root, root.value);
+        return nodeSums(root);
     }
 
-    public int nodesSums(TNode node, int sum) {      //A - depth of the current node
-        System.out.print(sum+", ");
+    public int nodeSums(TNode node) {
         if (node == null) return 0;
-        return sum + nodesSums(node.leftChild, node.value)
-                + nodesSums(node.rightChild, node.value);
 
+        return node.value + nodeSums(node.leftChild) + nodeSums(node.rightChild);
     }
-
-
-
-
+    // Sum of all Nodes
 }
+
+
+
+
+
 
 
 
