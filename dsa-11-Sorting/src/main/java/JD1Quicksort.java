@@ -1,0 +1,27 @@
+public class JD1Quicksort {
+
+    public static void qSort(int[] array, int start, int end){
+        if (start>=end) return; //termination
+        int boundary=partition(array, start, end);
+        qSort(array, start, boundary-1);// call qSort for left part
+        qSort(array,boundary+1, end);// call qSort for right part
+
+    }
+
+    public static int partition(int[] array, int start, int end){
+
+        int pivot=array[end];  //pivot -- is last element
+        int boundary =start;
+        for (int i = start; i <=end; i++) {
+            if(array[i]<=pivot) swap(array,i,boundary++);
+        }
+        return boundary-1;
+    }
+
+    public static void swap(int[] numbers, int index1, int index2) {
+        int temp = numbers[index1];
+        numbers[index1] = numbers[index2];
+        numbers[index2] = temp;
+
+    }
+}

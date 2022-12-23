@@ -7,6 +7,7 @@ public class BinarySearch {
         System.out.println(binarySearchIterative(numbers, 6));
         System.out.println(binarySearchRecursive(numbers, 6));
     }
+
     public static int binarySearchIterative(int[] array, int data){
         int left=0;
         int right= array.length-1;
