@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Map;
+
 public class Trie {
    TrieNode root;
 
@@ -42,6 +45,34 @@ public class Trie {
         }
         return true;
     }
+
+    public int countUniqueWords(TrieNode current) {
+        int count = 0;
+        if (current == null) return 0;
+        for (Map.Entry<Character, TrieNode> entry : current.children.entrySet()) {
+            if (entry.getValue().isWord) count++;
+            count += countUniqueWords(current.children.get(entry.getKey()));
+        }
+        return count;
+    }
+
+    public ArrayList<String> getAllWords() {
+        ArrayList<String> result = new ArrayList<>();
+        getAllWords(root, "", result);
+
+        return result;
+    }
+
+    private void getAllWords(TrieNode currentNode, String prefix, ArrayList<String> result) {
+        if (currentNode.isWord) result.add(prefix);
+
+        for (Map.Entry<Character, TrieNode> eachEntry : currentNode.children.entrySet()) {
+            char ch = eachEntry.getKey();
+            TrieNode deeperNode = eachEntry.getValue();
+            getAllWords(deeperNode, prefix + ch, result);
+        }
+    }
+
 }
 
 /**
